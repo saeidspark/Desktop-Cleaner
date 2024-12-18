@@ -6,6 +6,7 @@ from configparser import ConfigParser
 from watchdog.events import FileSystemEventHandler
 from win10toast import ToastNotifier
 from source.directories import Directories
+from config.config import image_extensions, video_extensions, audio_extensions, document_extensions, program_extensions, contact_extensions
 import os
 from time import sleep
 
@@ -14,8 +15,6 @@ dir_path_str = str(dir_path[0])
 os.chdir(dir_path_str)
 
 class MoverHandler(FileSystemEventHandler, Directories):
-    config = ConfigParser()
-    config.read('config\\config.ini')
     def __init__(self):
         self.source_dir = self.get_downloads_path()
         self.dest_dir_music = self.get_musics_path()
@@ -25,12 +24,12 @@ class MoverHandler(FileSystemEventHandler, Directories):
         self.dest_dir_programs = self.get_programs_path()
         self.dest_dir_contacts = self.get_contacts_path()
         
-        self.image_extensions = self.config.get("Extensions", "image_extensions").split(" , ")
-        self.video_extensions = self.config.get("Extensions", "video_extensions").split(" , ")
-        self.audio_extensions = self.config.get("Extensions", "audio_extensions").split(" , ")
-        self.document_extensions = self.config.get("Extensions", "document_extensions").split(" , ")
-        self.program_extensions = self.config.get("Extensions", "program_extensions").split(" , ")
-        self.contact_extensions = self.config.get("Extensions", "contact_extensions").split(" , ")
+        self.image_extensions = image_extensions
+        self.video_extensions = video_extensions
+        self.audio_extensions = audio_extensions
+        self.document_extensions = document_extensions
+        self.program_extensions = program_extensions
+        self.contact_extensions = contact_extensions
         
     def make_unique(self, dest, name):
         filename, extension = splitext(name)
