@@ -77,4 +77,4 @@ class Directories:
                 dest_dir_programs = winreg.QueryValueEx(key, programs_guid)[0]
                 return dest_dir_programs
         else:
-            return os.path.join(os.path.expanduser('~'), '.config', 'autostart')
+            return os.path.join(os.path.expanduser('~'), 'Programs')
