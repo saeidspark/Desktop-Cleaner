@@ -4,13 +4,12 @@ from shutil import move
 import logging
 from configparser import ConfigParser
 from watchdog.events import FileSystemEventHandler
-from win10toast import ToastNotifier
 from source.directories import Directories
 from config.config import image_extensions, video_extensions, audio_extensions, document_extensions, program_extensions, contact_extensions
 import os
 from time import sleep
 
-dir_path = [os.path.realpath(os.path.join(os.path.dirname(__file__), '..'))]
+dir_path = [os.path.realpath(os.path.join(os.path.dirname(__file__), '../..'))]
 dir_path_str = str(dir_path[0])
 os.chdir(dir_path_str)
 

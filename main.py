@@ -4,7 +4,6 @@ from source.startup import Startup
 from watchdog.observers import Observer
 import logging
 from time import sleep
-import os
 
 # ! NO NEED TO CHANGE BELOW CODE
 if __name__ == "__main__":
